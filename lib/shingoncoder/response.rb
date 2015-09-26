@@ -1,11 +1,12 @@
 module Shingoncoder
   class Response
-    attr_reader :code, :body
+    attr_reader :body, :code
 
     def initialize(properties)
-      @id = properties.fetch('id')
-      @code = properties.fetch('code')
-      @body = { 'id' => @id }
+      @code = properties.delete('code')
+      @body = properties.fetch('body', properties)
     end
+
+
   end
 end
