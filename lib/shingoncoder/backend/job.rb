@@ -16,8 +16,9 @@ module Shingoncoder::Backend
 
         job = Shingoncoder::Backend::JobRegistry.create(options)
 
-        # TODO decompose into several derivatives
-        TranscodeJob.perform_later(job.id)
+        job.outputs.each do |output|
+          TranscodeJob.perform_later(output.id)
+        end
 
         job.id
       end

@@ -14,7 +14,7 @@ Create the necessary tables:
 
 ```ruby
 rails console
-Shingoncoder::Backend::JobRegistry::Job.create_table!
+Shingoncoder::Backend::JobRegistry.create_tables!
 ```
 
 The asynchronous behavior is handled by ActiveJob, so you need only start your workers in the usual manner.
@@ -28,7 +28,20 @@ TODO
 
 ```ruby
 Shingoncoder::Job.create(input: 'file:///opt/originals/full.mov')
+Shingoncoder::Job.create(input: 'file:///opt/originals/full.mov',
+                         outputs: [{ label: 'vp8 for the web',
+                                     url: 'file:///opt/derivatives/output.webm'}])
 ```
+
+This returns a Shingoncoder::Response object which contains a Job ID and one or more Output IDs (one per output file).
+
+### Output options
+```
+url - where to put the file, (Must be a file URI for now)
+size - The resolution of the output video (WxH, in pixels).
+label - optional label
+```
+
 
 ## Contributing
 

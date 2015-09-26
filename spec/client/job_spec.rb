@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Shingoncoder::Job do
   describe ".create" do
     before do
-      Shingoncoder::Backend::JobRegistry::Job.create_table!
+      Shingoncoder::Backend::JobRegistry.create_tables!
     end
 
     let(:file) { "file://#{File.absolute_path('spec/fixtures/Bars_512kb.mp4')}" }
