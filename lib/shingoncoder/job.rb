@@ -21,6 +21,8 @@ module Shingoncoder
       end
 
       # should have ["job"]["input_media_file"]["url"]
+      # TODO should have ["job"]["state"] which is one of:
+      #   "pending", "waiting", "processing", "cancelled", "failed", "finished"
       def details
         job = Shingoncoder::Backend::JobRegistry::Job.find(id)
         Response.new('body' => { 'job' => { 'input_media_file' => { 'url' => job.input.fetch('input') } } }, 'code' => 200)
