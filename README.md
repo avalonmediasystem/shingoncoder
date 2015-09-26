@@ -24,6 +24,11 @@ The asynchronous behavior is handled by ActiveJob, so you need only start your w
 
 TODO
 
+```ruby
+Shingoncoder::Backend::TranscodeService.config.ffmpeg_path = '/usr/bin/ffmpeg'
+```
+
+
 ## Usage
 
 ```ruby
@@ -38,7 +43,7 @@ This returns a Shingoncoder::Response object which contains a Job ID and one or 
 ### Output options
 ```
 url - where to put the file, (Must be a file URI for now)
-size - The resolution of the output video (WxH, in pixels).
+size - The resolution of the output video (WxH, in pixels). Defaults to 320x240.
 label - optional label
 ```
 

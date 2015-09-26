@@ -5,5 +5,6 @@ module Shingoncoder
     autoload :JobRegistry
     autoload :TranscodeJob
     autoload :TranscodeService
+    autoload :Config
   end
 end

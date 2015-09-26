@@ -4,10 +4,13 @@ module Shingoncoder
 
       class << self
         def create(input)
+          raise ArgumentError, "Required argument ':input' is missing" unless input.key?(:input)
           outputs = input.delete(:outputs)
           outputs ||= default_output(input)
           Job.create(Job.input_column_name => input) do |job|
             outputs.each do |val|
+              raise ArgumentError, "Output directive must have a url" unless val.key?(:url)
+
               job.outputs.build(Output.input_column_name => val)
             end
           end
@@ -63,6 +66,15 @@ module Shingoncoder
         # Customizable data column name. Defaults to 'data'.
         cattr_accessor :input_column_name
         self.input_column_name = 'input'
+        serialize input_column_name, JSON
+
+        def url
+          self[input_column_name]['url']
+        end
+
+        def config
+          self[input_column_name]
+        end
 
         class << self
           def drop_table!

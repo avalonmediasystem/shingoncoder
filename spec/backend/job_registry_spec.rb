@@ -21,8 +21,8 @@ describe Shingoncoder::Backend::JobRegistry do
 
     context "with output values" do
       let(:attributes) { { input: file,
-                           output: [{ uri: 'file:///foo.mp4' },
-                                    { uri: 'file:///bar.webm' }] } }
+                           output: [{ url: 'file:///foo.mp4' },
+                                    { url: 'file:///bar.webm' }] } }
       it "creates a job with one output" do
         expect { described_class.create(attributes) }.
           to change { Shingoncoder::Backend::JobRegistry::Job.count }.by(1).
