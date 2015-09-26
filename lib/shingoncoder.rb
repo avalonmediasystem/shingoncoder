@@ -1,8 +1,8 @@
 require "shingoncoder/version"
 require 'active_support'
+require 'active_record'
 
 module Shingoncoder
-  # Your code goes here...
   extend ActiveSupport::Autoload
   autoload :Job
   autoload :Response

@@ -10,10 +10,11 @@ Include this gem in your Gemfile
 gem 'shingoncoder'
 ```
 
-Run the migration generator:
+Create the necessary tables:
 
 ```ruby
-rails generate active_record:shingoncoder_migration
+rails console
+Shingoncoder::Backend::JobRegistry::Job.create_table!
 ```
 
 The asynchronous behavior is handled by ActiveJob, so you need only start your workers in the usual manner.
