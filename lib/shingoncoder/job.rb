@@ -13,12 +13,17 @@ module Shingoncoder
         fail NotImplementedError
       end
 
-      def progress
-        fail NotImplementedError
+      # Each output should have current_event
+      # job itself should have 'progress'
+      def progress(id)
+        job = Shingoncoder::Backend::JobRegistry::Job.find(id)
+        Response.new('body' => id, 'code' => 200)
       end
 
+      # should have ["job"]["input_media_file"]["url"]
       def details
-        fail NotImplementedError
+        job = Shingoncoder::Backend::JobRegistry::Job.find(id)
+        Response.new('body' => { 'job' => { 'input_media_file' => { 'url' => job.input.fetch('input') } } }, 'code' => 200)
       end
     end
   end
