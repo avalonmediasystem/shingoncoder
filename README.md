@@ -22,7 +22,13 @@ The asynchronous behavior is handled by ActiveJob, so you need only start your w
 
 ## Configuration
 
+TODO
 
+## Usage
+
+```ruby
+Shingoncoder::Job.create(input: 'file:///opt/originals/full.mov')
+```
 
 ## Contributing
 

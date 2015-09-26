@@ -19,8 +19,6 @@ module Shingoncoder::Backend
         # TODO decompose into several derivatives
         TranscodeJob.perform_later(job.id)
 
-        # Hydra::Derivatives::Video::Processor.encode_file filename
-
         job.id
       end
     end
