@@ -1,4 +1,4 @@
-# Shingon
+# Shingoncoder
 
 A asynchronous system for handling video transcoding backed by FFMpeg.
 
@@ -7,13 +7,13 @@ A asynchronous system for handling video transcoding backed by FFMpeg.
 Include this gem in your Gemfile
 
 ```ruby
-gem 'shingon'
+gem 'shingoncoder'
 ```
 
 Run the migration generator:
 
 ```ruby
-rails generate active_record:shingon_migration
+rails generate active_record:shingoncoder_migration
 ```
 
 The asynchronous behavior is handled by ActiveJob, so you need only start your workers in the usual manner.
@@ -25,5 +25,5 @@ The asynchronous behavior is handled by ActiveJob, so you need only start your w
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/jcoyne/shingon. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jcoyne/shingoncoder. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
